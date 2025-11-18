@@ -1,4 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import ProofCard from "../components/proof_card";
+import {
+  ProofData1,
+  proofCardData2,
+  proofCardData3,
+} from "../components/proof_card_data";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -9,46 +15,76 @@ export default function Home() {
         <div className="grid-pattern"></div>
         <div className="glow-effect"></div>
       </div>
-      
+
       <div className="landing-content">
         <div className="landing-hero">
           <div className="zk-badge">
             <span>Zero-Knowledge Proofs</span>
           </div>
-          
+
           <h1 className="landing-title">
             <span className="title-gradient">ClinZK</span>
           </h1>
-          
+
           <p className="landing-subtitle">
             Privacy-Preserving Clinical Trial Eligibility Verification
           </p>
-          
+
           <p className="landing-description">
-            Verify your eligibility for clinical trials using cryptographic proofs. 
-            Your medical data remains private while proving your qualifications.
+            Verify your eligibility for clinical trials using cryptographic
+            proofs. Your medical data remains private while proving your
+            qualifications.
           </p>
         </div>
 
         <div className="landing-cta">
-          <button 
-            onClick={() => navigate('/retrieve')}
+          <button
+            onClick={() => navigate("/retrieve")}
             className="btn btn-primary btn-large btn-cta-primary"
           >
             <span>Retrieve Your Credential</span>
             <span className="btn-arrow">→</span>
           </button>
-          
-          <button 
-            onClick={() => navigate('/history')}
+
+          <button
+            onClick={() => navigate("/history")}
             className="btn btn-secondary btn-large btn-cta-secondary"
           >
             <span>View Proof History</span>
             <span className="btn-arrow">→</span>
           </button>
         </div>
+
+        <section className="proof-cards-section">
+          <div className="container-fluid">
+            <div className="cards-grid">
+              <ProofCard
+                title="your device"
+                subtitle="your data never leaves"
+                iconElement={<span style={{}}>🔒</span>}
+              >
+                {ProofData1}
+              </ProofCard>
+
+              <ProofCard
+                title="not your identity"
+                subtitle="Only a proof is shared"
+                iconElement={<span>🧩</span>}
+              >
+                {proofCardData2}
+              </ProofCard>
+
+              <ProofCard
+                title="Verified Clinics"
+                subtitle="used by"
+                iconElement={<span>✅</span>}
+              >
+                {proofCardData3}
+              </ProofCard>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
 }
-
